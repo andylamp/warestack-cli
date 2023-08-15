@@ -5,6 +5,12 @@ import (
 	"github.com/spf13/cobra"
 )
 
+type Config struct {
+	CurrentOrganization string `json:"current_organization,omitempty"`
+}
+
+const configFile = "config.json"
+
 var Cmd = &cobra.Command{
 	Use:     "configure",
 	Short:   "Manage and switch between your organizations",
