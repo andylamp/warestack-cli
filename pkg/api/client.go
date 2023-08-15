@@ -9,13 +9,13 @@ import (
 type Client struct {
 	HTTPClient  *http.Client
 	BaseURL     string
-	TokenClaims *auth.TokenClaims
+	Credentials *auth.Credentials
 }
 
-func NewClient(tokenClaim *auth.TokenClaims) *Client {
+func NewClient(credentials auth.Credentials) *Client {
 	return &Client{
 		HTTPClient:  &http.Client{Timeout: 10 * time.Second},
 		BaseURL:     "https://api-dev.warestack.cloud/v1",
-		TokenClaims: tokenClaim,
+		Credentials: &credentials,
 	}
 }

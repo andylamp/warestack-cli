@@ -5,7 +5,10 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"warestack-cli-v2/pkg/util"
 )
+
+const credentialsFile = "credentials.json"
 
 // HandleRedirect captures the Firebase tokens from the POST request body.
 func HandleRedirect(w http.ResponseWriter, r *http.Request) {
@@ -14,14 +17,18 @@ func HandleRedirect(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var tokenClaims TokenClaims
-	err := json.NewDecoder(r.Body).Decode(&tokenClaims)
+	var credentials Credentials
+	err := json.NewDecoder(r.Body).Decode(&credentials)
 	if err != nil {
 		http.Error(w, "Failed to decode tokens", http.StatusBadRequest)
 		return
 	}
 
-	err = storeTokenClaims(tokenClaims)
+	path, err := util.ConfigFilePath(credentialsFile)
+	if err != nil {
+		return
+	}
+	err = util.WriteJSON(path, credentials)
 	if err != nil {
 		log.Fatalf("Failed to write the tokens to file: %s", err)
 		http.Error(w, "Failed to store tokens", http.StatusInternalServerError)

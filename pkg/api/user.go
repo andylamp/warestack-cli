@@ -18,7 +18,7 @@ func (c *Client) GetUserProfile() (*dto.UserOutput, error) {
 		return nil, err
 	}
 
-	req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", c.TokenClaims.IdToken))
+	req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", c.Credentials.IDToken))
 
 	resp, err := c.HTTPClient.Do(req)
 	if err != nil {
