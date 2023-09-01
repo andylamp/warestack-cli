@@ -3,8 +3,8 @@ package configure
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"warestack-cli-v2/pkg/ui"
-	"warestack-cli-v2/pkg/util"
+	"warestack-cli/pkg/ui"
+	"warestack-cli/pkg/util"
 )
 
 var currentCmd = &cobra.Command{

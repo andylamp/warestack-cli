@@ -1,4 +1,4 @@
-module warestack-cli-v2
+module warestack-cli
 
 go 1.20
 

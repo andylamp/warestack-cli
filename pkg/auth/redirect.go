@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"warestack-cli-v2/pkg/util"
+	"warestack-cli/pkg/util"
 )
 
 const credentialsFile = "credentials.json"
@@ -36,5 +36,5 @@ func HandleRedirect(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.WriteHeader(http.StatusOK)
-	fmt.Fprintln(w, "Successful login. You can now return to the CLI!")
+	fmt.Fprintln(w, "Successful sign in. You can now return to the CLI!")
 }

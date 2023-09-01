@@ -1,6 +1,6 @@
 package main
 
-import "warestack-cli-v2/cmd"
+import "warestack-cli/cmd"
 
 func main() {
 	cmd.Execute()

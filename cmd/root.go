@@ -3,8 +3,8 @@ package cmd
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"warestack-cli-v2/cmd/configure"
-	"warestack-cli-v2/cmd/login"
+	"warestack-cli/cmd/configure"
+	"warestack-cli/cmd/login"
 )
 
 var rootCmd = &cobra.Command{

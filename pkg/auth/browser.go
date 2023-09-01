@@ -5,7 +5,7 @@ import (
 	"log"
 	"os/exec"
 	"runtime"
-	"warestack-cli-v2/pkg/ui"
+	"warestack-cli/pkg/ui"
 )
 
 // OpenBrowser opens a browser window with the given URL.

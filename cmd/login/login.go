@@ -3,15 +3,15 @@ package login
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"warestack-cli-v2/cmd/configure"
-	"warestack-cli-v2/pkg/api"
-	"warestack-cli-v2/pkg/auth"
-	"warestack-cli-v2/pkg/ui"
-	"warestack-cli-v2/pkg/util"
+	"warestack-cli/cmd/configure"
+	"warestack-cli/pkg/api"
+	"warestack-cli/pkg/auth"
+	"warestack-cli/pkg/ui"
+	"warestack-cli/pkg/util"
 )
 
 // AuthURL is the URL the user will be sent to for authentication
-const authURL = "https://www.warestack.cloud/login"
+const authURL = "https://www.warestack.com/signin"
 const credentialsFile = "credentials.json"
 const configFile = "config.json"
 
@@ -61,7 +61,7 @@ var Cmd = &cobra.Command{
 		config.CurrentOrganization = organization.Alias
 		err = util.WriteJSON(path, &config)
 
-		ui.ShowFormattedMessage("You are now logged in as [%s]!\n", user.Email)
+		ui.ShowFormattedMessage("You are now authenticated as [%s]!\n", user.Email)
 		ui.ShowMessage("")
 		ui.ShowMessage("Success, The session will end after 7 days of inactivity. Otherwise, it will remain active.")
 		ui.ShowMessage("")

@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 	"net/http"
-	"warestack-cli-v2/pkg/auth"
+	"warestack-cli/pkg/auth"
 )
 
 // LocalServerURL is the URL to be used for listening to the auth callback

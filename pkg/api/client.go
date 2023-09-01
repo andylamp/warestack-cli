@@ -3,7 +3,7 @@ package api
 import (
 	"net/http"
 	"time"
-	"warestack-cli-v2/pkg/auth"
+	"warestack-cli/pkg/auth"
 )
 
 type Client struct {
@@ -15,7 +15,7 @@ type Client struct {
 func NewClient(credentials auth.Credentials) *Client {
 	return &Client{
 		HTTPClient:  &http.Client{Timeout: 10 * time.Second},
-		BaseURL:     "https://api-dev.warestack.cloud/v1",
+		BaseURL:     "https://api.warestack.com/v1",
 		Credentials: &credentials,
 	}
 }
