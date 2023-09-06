@@ -47,7 +47,7 @@ var Cmd = &cobra.Command{
 			return err
 		}
 
-		organization, err := client.GetOrganizationByID(user.Settings.DefaultOrganizationID)
+		organization, err := client.GetOrganizationByAlias(user.Settings.DefaultOrganizationAlias)
 		if err != nil {
 			fmt.Println("Error:", err)
 			return err

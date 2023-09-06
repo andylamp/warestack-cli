@@ -12,8 +12,8 @@ type OrganizationResponse struct {
 	Organization *dto.OrganizationOutput
 }
 
-func (c *Client) GetOrganizationByID(id uint) (*dto.OrganizationOutput, error) {
-	req, err := http.NewRequest("GET", fmt.Sprintf("%s/organizations/%d", c.BaseURL, id), nil)
+func (c *Client) GetOrganizationByAlias(alias string) (*dto.OrganizationOutput, error) {
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s/organizations/alias/%s", c.BaseURL, alias), nil)
 	if err != nil {
 		return nil, err
 	}
