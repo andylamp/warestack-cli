@@ -11,7 +11,7 @@ import (
 )
 
 // AuthURL is the URL the user will be sent to for authentication
-const authURL = "https://www.warestack.com/signin"
+const authURL = "https://www.warestack.com/cli-auth"
 const credentialsFile = "credentials.json"
 const configFile = "config.json"
 
