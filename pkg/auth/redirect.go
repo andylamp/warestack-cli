@@ -12,10 +12,10 @@ const credentialsFile = "credentials.json"
 
 // HandleRedirect captures the Firebase tokens from the POST request body.
 func HandleRedirect(w http.ResponseWriter, r *http.Request) {
-	//if r.Method != http.MethodPost {
-	//	http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
-	//	return
-	//}
+	if r.Method != http.MethodPost {
+		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
+		return
+	}
 
 	var credentials Credentials
 	err := json.NewDecoder(r.Body).Decode(&credentials)
