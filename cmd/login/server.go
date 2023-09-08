@@ -2,6 +2,7 @@ package login
 
 import (
 	"context"
+	"github.com/rs/cors"
 	"log"
 	"net/http"
 	"warestack-cli/pkg/auth"
@@ -12,12 +13,19 @@ const LocalServerURL = "localhost:8050"
 
 // StartServer starts a local server and listens for a shutdown signal
 func StartServer(done chan bool) *http.Server {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		auth.HandleRedirect(w, r)
 		done <- true
 	})
 
-	server := &http.Server{Addr: LocalServerURL}
+	// Add CORS middleware around your router
+	handler := cors.Default().Handler(mux)
+
+	server := &http.Server{
+		Addr:    LocalServerURL,
+		Handler: handler,
+	}
 
 	go func() {
 		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {

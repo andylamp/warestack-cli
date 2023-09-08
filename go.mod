@@ -3,6 +3,7 @@ module warestack-cli
 go 1.20
 
 require (
+	github.com/rs/cors v1.10.0
 	github.com/spf13/cobra v1.7.0
 	github.com/warestack/warestack-core-api v1.2.2-beta
 )
